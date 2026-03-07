@@ -1,1213 +1,191 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>КОНВЕЙЕР ЗАЯВОК: Карусели Instagram в стабильный источник клиентов</title>
-    <meta name="description" content="Система создания Instagram-каруселей, которая принесла 300К+ подписчиков. Готовые воронки на 30 дней за 890₽.">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();
-       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
-       ym(XXXXXXXX, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true,
-            ecommerce:"dataLayer"
-       });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #FF4D00;
-            --secondary: #1A1A1A;
-            --accent: #FFE4D6;
-            --text: #2D2D2D;
-            --light: #FAFAFA;
-            --gradient: linear-gradient(135deg, #FF6B35 0%, #FF4D00 100%);
-        }
-
-        body {
-            font-family: 'Manrope', sans-serif;
-            color: var(--text);
-            background: var(--light);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .hero {
-            background: var(--secondary);
-            color: white;
-            padding: 80px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: var(--gradient);
-            border-radius: 50%;
-            top: -300px;
-            right: -200px;
-            opacity: 0.15;
-            filter: blur(100px);
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(36px, 6vw, 64px);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            position: relative;
-        }
-
-        .subtitle {
-            font-size: clamp(18px, 3vw, 22px);
-            opacity: 0.9;
-            margin-bottom: 32px;
-            font-weight: 400;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .stat-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 24px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .stat-number {
-            font-size: 42px;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-alt {
-            background: white;
-        }
-
-        h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 700;
-            margin-bottom: 32px;
-            line-height: 1.2;
-        }
-
-        h3 {
-            font-size: clamp(22px, 4vw, 28px);
-            font-weight: 700;
-            margin-bottom: 16px;
-            margin-top: 40px;
-        }
-
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .highlight-box {
-            background: var(--accent);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-            border-left: 6px solid var(--primary);
-        }
-
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin: 40px 0;
-        }
-
-        .comparison-item {
-            padding: 32px;
-            border-radius: 16px;
-            position: relative;
-        }
-
-        .comparison-bad {
-            background: #FFF5F5;
-            border: 2px solid #FFA8A8;
-        }
-
-        .comparison-good {
-            background: #F0FFF4;
-            border: 2px solid #68D391;
-        }
-
-        .comparison-label {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-        }
-
-        .key-points {
-            list-style: none;
-            margin: 32px 0;
-        }
-
-        .key-points li {
-            padding: 20px;
-            margin-bottom: 16px;
-            background: white;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            font-size: 17px;
-        }
-
-        .key-points strong {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .case-study {
-            background: linear-gradient(135deg, #2D2D2D 0%, #1A1A1A 100%);
-            color: white;
-            padding: 48px;
-            border-radius: 24px;
-            margin: 48px 0;
-        }
-
-        .case-study h3 {
-            color: var(--primary);
-        }
-
-        .pain-block {
-            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
-            color: white;
-            padding: 60px;
-            border-radius: 24px;
-            margin: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pain-block::before {
-            content: '😰';
-            position: absolute;
-            font-size: 200px;
-            opacity: 0.05;
-            right: -50px;
-            top: -50px;
-        }
-
-        .timeline {
-            margin: 32px 0;
-            padding-left: 32px;
-            border-left: 3px solid var(--primary);
-        }
-
-        .timeline-item {
-            margin-bottom: 24px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -35px;
-            top: 8px;
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-        }
-
-        .timeline-day {
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-
-        .price-comparison {
-            background: white;
-            padding: 48px;
-            border-radius: 24px;
-            margin: 48px 0;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #E5E5E5;
-        }
-
-        .price-row:last-child {
-            border-bottom: none;
-            font-weight: 800;
-            font-size: 24px;
-            color: var(--primary);
-            padding-top: 32px;
-        }
-
-        .offer-section {
-            background: linear-gradient(135deg, #FF6B35 0%, #FF4D00 100%);
-            color: white;
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .offer-box {
-            background: white;
-            color: var(--text);
-            padding: 56px;
-            border-radius: 32px;
-            box-shadow: 0 16px 64px rgba(0,0,0,0.2);
-        }
-
-        .offer-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--secondary);
-        }
-
-        .price-block {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .old-price {
-            font-size: 28px;
-            text-decoration: line-through;
-            opacity: 0.5;
-            margin-bottom: 8px;
-        }
-
-        .new-price {
-            font-size: 72px;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-
-        .price-note {
-            font-size: 16px;
-            color: #666;
-        }
-
-        .cta-button {
-            display: block;
-            width: 100%;
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            padding: 24px 48px;
-            border-radius: 16px;
-            font-size: 22px;
-            font-weight: 800;
-            text-decoration: none;
-            margin: 32px 0;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 24px rgba(255, 77, 0, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(255, 77, 0, 0.4);
-        }
-
-        .urgency {
-            background: #FFF3CD;
-            border-left: 4px solid #FFA500;
-            padding: 20px 24px;
-            border-radius: 12px;
-            margin: 24px 0;
-            font-weight: 600;
-        }
-
-        .features-grid {
-            display: grid;
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .feature-item {
-            background: var(--accent);
-            padding: 32px;
-            border-radius: 16px;
-            border-left: 6px solid var(--primary);
-        }
-
-        .feature-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--secondary);
-        }
-
-        .faq {
-            margin: 60px 0;
-        }
-
-        .faq-item {
-            background: white;
-            padding: 32px;
-            margin-bottom: 16px;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .faq-question {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--secondary);
-            padding: 16px;
-            box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .sticky-cta.visible {
-            transform: translateY(0);
-        }
-
-        .sticky-cta .cta-button {
-            margin: 0;
-            font-size: 18px;
-            padding: 16px 32px;
-        }
-
-        @media (max-width: 768px) {
-            .comparison {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 60px 0 80px;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .offer-box,
-            .pain-block,
-            .price-comparison {
-                padding: 32px;
-            }
-
-            .new-price {
-                font-size: 56px;
-            }
-        }
-
-        .emoji {
-            font-size: 1.2em;
-        }
-
-        .bold-stat {
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        /* Таймер обратного отсчёта */
-        .countdown-wrapper {
-            background: linear-gradient(135deg, #FF6B35 0%, #FF4D00 100%);
-            padding: 32px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 32px 0;
-            color: white;
-        }
-
-        .countdown-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 12px;
-            min-width: 80px;
-        }
-
-        .countdown-number {
-            font-size: 42px;
-            font-weight: 800;
-            display: block;
-            line-height: 1;
-        }
-
-        .countdown-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            margin-top: 8px;
-            opacity: 0.9;
-            letter-spacing: 0.5px;
-        }
-
-        .spots-counter {
-            background: #FFF3CD;
-            border: 2px solid #FFA500;
-            padding: 20px 32px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 24px 0;
-            font-size: 20px;
-            font-weight: 700;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-
-        .spots-number {
-            font-size: 36px;
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        /* Изображения кейсов */
-        .case-image {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 16px;
-            margin: 24px auto;
-            display: block;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin: 32px 0;
-        }
-
-        .image-grid img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-    </style>
-</head>
-<body>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <h1>КОНВЕЙЕР ЗАЯВОК:<br>Как превратить Instagram-карусели<br>в стабильный источник клиентов</h1>
-            <p class="subtitle">В 2026 году Reels — это хайп. Карусели — это продажи.<br>Узнайте систему, которая принесла 300 000+ подписчиков и стабильный поток заявок.</p>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-number">300К+</span>
-                    <span class="stat-label">подписчиков собрано через карусели</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">2336</span>
-                    <span class="stat-label">подписчиков с одного поста</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">+70%</span>
-                    <span class="stat-label">конверсия в заявки vs одиночные посты</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ФАКТ ПРО АЛГОРИТМ -->
-    <section class="section">
-        <div class="container">
-            <div class="highlight-box">
-                <h3><span class="emoji">💡</span> Секрет алгоритма Instagram 2026</h3>
-                <p><strong>Карусели — единственный формат, которому Instagram даёт «второй шанс».</strong></p>
-                <p>Если пользователь пролистнул ваш пост, алгоритм покажет его снова, но уже со 2-го слайда. Это удваивает ваши шансы на касание с клиентом.</p>
-                <p>Но есть проблема: 90% экспертов делают карусели неправильно, превращая их в бесполезные «списки советов», которые никого не зацепляют.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ПОЧЕМУ КАРУСЕЛИ -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2>Почему карусели эффективнее для продаж, чем Reels?</h2>
-            <p>За последние 2 года Instagram сильно изменился. И если смотреть не на хайп, а на цифры и данные, картина становится очевидной:</p>
-            
-            <div class="comparison">
-                <div class="comparison-item comparison-bad">
-                    <div class="comparison-label" style="color: #C53030;">REELS</div>
-                    <p><strong>Внимание</strong></p>
-                    <p style="font-size: 15px; opacity: 0.8;">Смотрят пассивно<br>«Посмотрел и пролистал»<br>Низкое доверие<br>Мало сохранений</p>
-                </div>
-                <div class="comparison-item comparison-good">
-                    <div class="comparison-label" style="color: #2F855A;">КАРУСЕЛИ</div>
-                    <p><strong>Доверие и заявки</strong></p>
-                    <p style="font-size: 15px; opacity: 0.8;">Читают внимательно<br>«Оставил себе»<br>Высокая вовлечённость<br>Конверсия +70%</p>
-                </div>
-            </div>
-
-            <ul class="key-points">
-                <li><strong>Instagram официально расширил карусели до 20 слайдов.</strong> Это не случайное обновление — алгоритм считает многостраничный контент более ценным. Фактически, один пост-карусель = мини-лендинг внутри ленты.</li>
-                
-                <li><strong>Карусели получают на 10-15% больше вовлечённости, чем Reels.</strong> Исследования Buffer и Socialinsider (анализ миллионов постов) это подтверждают. Лайки, комментарии, обсуждения — именно под каруселями.</li>
-                
-                <li><strong>Карусели — абсолютный лидер по сохранениям.</strong> А сохранения = доверие. Пользователи сохраняют то, к чему хотят вернуться. Reels — «посмотрел и пролистал». Карусели — «оставил себе».</li>
-                
-                <li><strong>Алгоритм может показывать карусель несколько раз.</strong> Адам Моссери (глава Instagram) прямо говорил: если пользователь не пролистал карусель до конца — Instagram может показать этот пост повторно.</li>
-                
-                <li><strong>Карусели лучше прогревают до заявки.</strong> Это подтверждается даже рекламными данными: карусель-объявления дают до +70% конверсии. Почему? Потому что человек читает аргументы, видит логику, понимает ценность, принимает решение постепенно. Ровно то, что нужно для экспертов и услуг.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- КЕЙСЫ -->
-    <section class="section">
-        <div class="container">
-            <h2>Доказательства: Реальные результаты системы</h2>
-            
-            <div class="case-study">
-                <h3>Кейс #1: Взрывной рост с 11+ слайдов</h3>
-                <p>Новый алгоритм продвигает длинные карусели (до 20 слайдов). Мы протестировали формат в 11 слайдов и получили в 20 раз больше подписок, чем со стандартных 10-слайдовых постов.</p>
-                <p><strong class="bold-stat">Результат: 2 336 подписчиков с одного поста.</strong></p>
-                <img src="https://img3.teletype.in/files/a7/03/a703eacf-58f2-4aaf-b5cc-e3860bb17cfa.png" alt="Кейс роста подписчиков" class="case-image">
-                <p>Секрет: Глубокое удержание и правильно вшитое SEO.</p>
-            </div>
-
-            <div class="case-study">
-                <h3>Кейс #2: Оживление заброшенного блога</h3>
-                <p>Взяли аккаунт, который не велся год. Выложили 4 карусели за неделю.</p>
-                <p><strong class="bold-stat">Результат: +138 целевых подписчиков без вложений в рекламу.</strong></p>
-                <img src="https://img3.teletype.in/files/e9/a3/e9a379a1-0def-478f-91d7-a0213d9bc5bd.png" alt="Рост заброшенного блога" class="case-image">
-                <p>Секрет: Каждый пост работал до 3-х недель за счет SEO-потенциала.</p>
-            </div>
-
-            <div class="case-study">
-                <h3>Кейс #3: Получение заявок на лидмагнит психологу за 2 поста</h3>
-                <p>Эксперт-психолог запустил систему из 7 постов-каруселей.</p>
-                
-                <div class="image-grid">
-                    <img src="https://img4.teletype.in/files/34/4c/344c6350-ee96-45f0-99c0-16493fd15f95.jpeg" alt="Заявки психологу часть 1">
-                    <img src="https://img3.teletype.in/files/27/f3/27f3816a-3279-4970-976c-ea3ef71c2909.png" alt="Заявки психологу часть 2">
-                </div>
-                
-                <p><strong class="bold-stat">Результат: стабильный поток заявок в директ уже через неделю.</strong></p>
-                <p>За первые 2 поста получил десятки запросов на консультацию без рекламного бюджета.</p>
-                
-                <img src="https://img3.teletype.in/files/ab/8c/ab8c676e-0679-4504-91f1-c3b7ed40aceb.jpeg" alt="Результаты за 2 поста" class="case-image" style="margin-top: 24px;">
-            </div>
-        </div>
-    </section>
-
-    <!-- АНАТОМИЯ КАРУСЕЛИ -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2>Анатомия карусели, которая конвертирует</h2>
-            <p>Обычные карусели = списки советов, которые никто не сохраняет.<br>
-            <strong>Продающие карусели = воронка, которая ведёт от проблемы к решению.</strong></p>
-
-            <img src="https://img3.teletype.in/files/ef/01/ef01ff3a-5187-4490-8731-eefa2cdc1b20.jpeg" alt="Анатомия продающей карусели" class="case-image" style="margin: 40px auto;">
-
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-title">1. Слайд: Заголовок-крючок (The Hook)</div>
-                    <p><strong>Цель:</strong> Продать клик и остановку скролла.</p>
-                    <p><strong>Пример для психолога:</strong> «Почему вы выбираете тех, кто вас не любит? (Дело не в папе)».</p>
-                    <p><strong>Пример для астролога:</strong> «Ваш финансовый потолок зашит в Марсе. Как его пробить в 2026?»</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-title">2. Слайд: Идентификация и присоединение (The Mirror)</div>
-                    <p><strong>Цель:</strong> Создать узнавание («Это про меня»).</p>
-                    <p><strong>Пример:</strong> «Вы снова оправдываете его холодность усталостью, а сами засыпаете с комом в горле. Знакомо?»</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-title">3. Слайд: Новый взгляд (The Twist)</div>
-                    <p><strong>Цель:</strong> Разрушить старые убеждения.</p>
-                    <p><strong>Пример:</strong> «Проблема не в том, что вам "не везет". А в том, что ваша психика считает безопасность скукой».</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-title">4-6. Слайды: Методология и «Мясо» (The Value)</div>
-                    <p><strong>Цель:</strong> Продемонстрировать экспертность через конкретные шаги.</p>
-                    <p><strong>Пример:</strong> «Шаг 1: Заметить цикл. Шаг 2: Найти выгоду страдания. Шаг 3: Разрешить себе быть "плохой"».</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-title">7. Слайд: Социальное доказательство (The Proof)</div>
-                    <p><strong>Цель:</strong> Снять возражение «А это точно работает?».</p>
-                    <p><strong>Пример:</strong> «Кейс: Анна вышла из абьюза за 3 месяца и впервые за 5 лет чувствует себя живой».</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-title">8. Слайд: Призыв к действию (The Conversion)</div>
-                    <p><strong>Цель:</strong> Перевести из читателя в лида.</p>
-                    <p><strong>Пример:</strong> «Пиши "СВОБОДА" в директ — пришлю тест на определение сценария в отношениях».</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <p style="font-size: 19px; margin: 0;"><strong>Почему это работает:</strong> Мы ведём человека по классической лестнице принятия решения: от осознания проблемы до выбора решения. В 2026 году люди покупают у тех, кто даёт смыслы, а не просто «полезные списки».</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ПРОМТЫ ДЛЯ ПРАКТИКИ -->
-    <section class="section">
-        <div class="container">
-            <h2>Технология создания карусели с помощью ИИ</h2>
-            <p>Чтобы не выгорать, вы должны делегировать рутину ИИ. Используйте бесплатные инструменты: ChatGPT, Claude, Perplexity.</p>
-
-            <h3>Готовые промты для создания карусели:</h3>
-            
-            <div class="highlight-box">
-                <p><strong>ПРОМТ 1 — СЛАЙД 1 (СТОП-СКРОЛЛ)</strong></p>
-                <p style="background: white; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 15px; margin-top: 16px;">
-                Ты — контент-стратег для [ваша ниша].<br>
-                Сформулируй первый слайд карусели так,<br>
-                чтобы он бил в состояние клиента с проблемой ___.<br>
-                1–2 строки. Без терминов, без советов.<br>
-                Цель — остановить скролл.
-                </p>
-            </div>
-
-            <div class="highlight-box">
-                <p><strong>ПРОМТ 2 — СЛАЙДЫ 2–3 (УЗНАВАНИЕ)</strong></p>
-                <p style="background: white; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 15px; margin-top: 16px;">
-                Опиши состояние человека,<br>
-                который живёт с проблемой ___.<br>
-                Через мысли, сомнения, внутренний диалог.<br>
-                Пиши языком клиента, не языком специалиста.
-                </p>
-            </div>
-
-            <div class="highlight-box">
-                <p><strong>ПРОМТ 3 — ФИНАЛЬНЫЙ СЛАЙД (CTA)</strong></p>
-                <p style="background: white; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 15px; margin-top: 16px;">
-                Напиши финальный слайд так,<br>
-                чтобы человек почувствовал:<br>
-                — он не один в этой ситуации,<br>
-                — с этим можно разобраться глубже,<br>
-                — продолжение логично.<br>
-                Без прямой продажи.
-                </p>
-            </div>
-
-            <p style="margin-top: 40px; font-size: 20px;"><strong>Попробуйте прямо сейчас:</strong> Скопируйте любой промт выше, вставьте в ChatGPT (бесплатная версия подходит) и создайте свой первый слайд.</p>
-            
-            <div class="highlight-box" style="margin-top: 40px;">
-                <h3>Пример визуала, созданного с помощью ИИ:</h3>
-                <img src="https://img2.teletype.in/files/90/23/90232193-6026-4f52-9231-9b79cdca117e.png" alt="Пример визуала карусели" class="case-image">
-                <p style="margin-top: 16px;">Такие визуалы вы сможете создавать за 2 минуты с помощью готовых промтов из конструктора.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- БЛОК БОЛИ -->
-    <section class="section">
-        <div class="container">
-            <div class="pain-block">
-                <h2 style="color: white;">Теперь самое честное</h2>
-                <p>Вы можете взять эти промты и начать делать карусели сами.<br>
-                Это сработает.</p>
-                
-                <p>Но вот что произойдёт на практике:</p>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-day">ДЕНЬ 1</div>
-                        <p>Энтузиазм. «Щас запилю огонь!»</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-day">ДЕНЬ 3</div>
-                        <p>Первые 2 поста готовы. Устали искать идеи для следующих.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-day">ДЕНЬ 7</div>
-                        <p>Открываете ChatGPT... и понимаете, что промт не работает, потому что вы неправильно его адаптировали под свою нишу.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-day">ДЕНЬ 14</div>
-                        <p>Забросили. Вернулись к хаотичным Reels и постам «по вдохновению».</p>
-                    </div>
-                </div>
-
-                <p style="font-size: 22px; margin-top: 40px;"><strong>Знакомо?</strong></p>
-                
-                <p style="font-size: 20px; margin-top: 32px;">Проблема не в знаниях.<br>
-                Проблема в том, что <strong>система требует времени на запуск</strong>.</p>
-                
-                <p style="font-size: 20px;">А время эксперта = это деньги.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ЦЕННОСТЬ ВРЕМЕНИ -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2>Сколько на самом деле стоит «делать всё самому»?</h2>
-            
-            <div class="price-comparison">
-                <div class="price-row">
-                    <span>Время на 1 пост руками (идея + текст + визуал)</span>
-                    <span class="bold-stat">3 часа</span>
-                </div>
-                <div class="price-row">
-                    <span>30 постов в месяц</span>
-                    <span class="bold-stat">90 часов</span>
-                </div>
-                <div class="price-row">
-                    <span>Стоимость вашего часа как эксперта</span>
-                    <span class="bold-stat">минимум 2 000 ₽</span>
-                </div>
-                <div class="price-row">
-                    <span>ИТОГО: вы теряете</span>
-                    <span>180 000 ₽</span>
-                </div>
-            </div>
-
-            <div class="highlight-box" style="margin-top: 40px;">
-                <h3 style="font-size: 28px; margin-bottom: 24px;">VS</h3>
-                <p style="font-size: 22px; margin: 0;"><strong>Готовая система = 890 ₽</strong></p>
-                <p style="font-size: 18px; margin-top: 16px; margin-bottom: 0;">Где уже всё: адаптировано под 5 ниш, прописаны хуки и CTA, обучен ИИ-аватар под ваш голос, даны визуальные референсы.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- СРАВНЕНИЕ -->
-    <section class="section">
-        <div class="container">
-            <h2>Выбор простой: 3 недели жизни или 890 ₽</h2>
-            
-            <div class="comparison">
-                <div class="comparison-item comparison-bad">
-                    <div class="comparison-label" style="color: #C53030;">ВАРИАНТ А: Делаете сами</div>
-                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
-                        <li style="margin-bottom: 16px;">❌ 90+ часов на разработку контента</li>
-                        <li style="margin-bottom: 16px;">❌ Выгорание к концу второй недели</li>
-                        <li style="margin-bottom: 16px;">❌ Постоянный страх «а правильно ли я делаю?»</li>
-                        <li style="margin-bottom: 16px;">❌ Потеря 180 000 ₽ времени</li>
-                    </ul>
-                </div>
-                <div class="comparison-item comparison-good">
-                    <div class="comparison-label" style="color: #2F855A;">ВАРИАНТ Б: Берёте готовую систему</div>
-                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
-                        <li style="margin-bottom: 16px;">✅ 30 воронок под ключ</li>
-                        <li style="margin-bottom: 16px;">✅ ИИ-ассистент, обученный вашему голосу</li>
-                        <li style="margin-bottom: 16px;">✅ Запуск за 1 день</li>
-                        <li style="margin-bottom: 16px;">✅ Инвестиция 890 ₽</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ОФФЕР -->
-    <section class="offer-section">
-        <div class="container">
-            
-            <!-- Таймер обратного отсчёта -->
-            <div class="countdown-wrapper">
-                <div class="countdown-title">⏰ До повышения цены осталось:</div>
-                <div class="countdown-timer">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-label">Часов</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-label">Минут</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-label">Секунд</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Счётчик мест -->
-            <div class="spots-counter">
-                🔥 Осталось всего <span class="spots-number" id="spots-left">17</span> доступов по цене 890₽
-            </div>
-            
-            <div class="offer-box">
-                <h2 class="offer-title">КОНСТРУКТОР КОНТЕНТА:<br>30-дневный набор готовых решений</h2>
-                
-                <img src="https://img2.teletype.in/files/9a/1a/9a1a5404-5830-4616-8c7d-58bcc5657287.jpeg" alt="Конструктор контента" class="case-image" style="margin: 32px auto;">
-                
-                <h3>Что внутри:</h3>
-                
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">📋 Конструктор контента на 30 постов-каруселей</div>
-                        <ul style="margin-top: 12px; padding-left: 20px;">
-                            <li>10 постов на привлечение</li>
-                            <li>10 постов на прогрев к продукту или услуге</li>
-                            <li>10 постов на продажи</li>
-                        </ul>
-                        <p style="margin-top: 16px;"><strong>Включает полные сценарии:</strong> Хук, Смысл, CTA для каждой карусели, закрывающий всю воронку от подписки до продажи.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-title">🎯 Адаптация под ниши</div>
-                        <p><strong>Твердые ниши:</strong> Юристы, Финансы, Крипто, Недвижимость</p>
-                        <p><strong>Мягкие ниши:</strong> Психологи (отношения + нервозы), Астрологи, Тарологи</p>
-                        <p><strong>Бьюти и Здоровье:</strong> Косметологи, Врачи, Нутрициологи</p>
-                        <p><strong>Творчество и Спорт:</strong> Фотографы, Хэндмейд, Фитнес, Йога</p>
-                        <p><strong>Образование и Лайфстайл:</strong> SMM, Дизайн, Тревел, Личный бренд</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-title">🤖 ИИ-Аватар (Гибридный интеллект)</div>
-                        <p>Ваш персональный ассистент, который пишет вашим голосом, но понятно для клиентов.</p>
-                        <p style="margin-top: 12px;"><strong>В него уже включена большая база знаний:</strong> снимает цифровой профиль эксперта + адаптирует сложные слова на понятный язык покупателя.</p>
-                        <p style="margin-top: 12px;">+ <strong>Видео-инструкция</strong> как им пользоваться</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-title">🎨 Визуальные триггеры для каждой ниши</div>
-                        <p>+ Список референсов удачных постов-каруселей</p>
-                        <p style="margin-top: 12px;">Профессиональный визуал без дизайнера — с готовыми референсами и ТЗ для ИИ вы делаете стильный контент сами.</p>
-                    </div>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 48px;">
-                    <h3>🚀 Почему это КРУТО и зачем это покупать эксперту?</h3>
-                    <p>Эксперты тонут в двух проблемах: «О чем писать?» и «Как это оформить, чтобы не выглядеть глупо?».</p>
-                    
-                    <ul style="margin-top: 20px; padding-left: 24px;">
-                        <li style="margin-bottom: 12px;"><strong>Экономия 40+ часов в месяц:</strong> ИИ-ассистент на базе ваших промптов пишет пост за 30 секунд.</li>
-                        <li style="margin-bottom: 12px;"><strong>Снятие страха «чистого листа»:</strong> У эксперта есть готовый план на каждый день.</li>
-                        <li style="margin-bottom: 12px;"><strong>Профессиональный визуал без дизайнера:</strong> С готовыми референсами и ТЗ для ИИ эксперт делает стильный контент сам.</li>
-                    </ul>
-
-                    <p style="margin-top: 24px; font-size: 19px;"><strong>Это единственный продукт на рынке, который учит ИИ сохранять авторский слог, а не выдавать шаблонный бред.</strong></p>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 32px; background: #F0FFF4; border-left-color: #68D391;">
-                    <h3>🎯 Какой будет результат?</h3>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-day">ЧЕРЕЗ 7 ДНЕЙ</div>
-                            <p>В блоге появляется регулярный, стильный и понятный контент. Охваты начинают расти за счет «виральных» хуков.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-day">ЧЕРЕЗ 14 ДНЕЙ</div>
-                            <p>Аудитория прогревается через «смыслы» и начинает видеть в авторе живого человека, а не «говорящую голову».</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-day">ЧЕРЕЗ 30 ДНЕЙ</div>
-                            <p>Сформированная воронка из 30 постов начинает приносить регулярные заявки в Директ на автомате.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="price-block">
-                    <div class="old-price">2 990 ₽</div>
-                    <div class="new-price">890 ₽</div>
-                    <div class="price-note">Специальное предложение — только сегодня</div>
-                </div>
-
-                <a href="https://t.me/tribute/app?startapp=sMJ0" class="cta-button" onclick="trackConversion('main_cta')">
-                    ПОЛУЧИТЬ СИСТЕМУ ЗА 890 ₽ →
-                </a>
-
-                <p style="text-align: center; margin-top: 24px; font-size: 17px; font-style: italic; opacity: 0.8;">
-                    P.S. Либо вы остаётесь внутри процесса и работаете руками, либо вы создаёте систему, которая работает на ваш рост. Выбор за вами.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2>Частые вопросы (FAQ)</h2>
-            
-            <div class="faq">
-                <div class="faq-item">
-                    <div class="faq-question">❓ А если я не технарь?</div>
-                    <p>ИИ-ассистенты не требуют технических навыков. Вы работаете с текстом и логикой, а не с кодом. Всё максимально просто — копируй-вставляй.</p>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">❓ А если я уже пробовал ИИ и не зашло?</div>
-                    <p>Скорее всего, вы пробовали ИИ без структуры. Здесь ИИ не «пишет сам», а работает внутри готовой логики воронки, которая уже доказала свою эффективность на реальных кейсах.</p>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">❓ А если мне нужна обратная связь?</div>
-                    <p>Этот формат не про сопровождение. Он про самостоятельность и контроль. Вы получаете готовую систему и работаете в своём темпе.</p>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">❓ А если я хочу быстрый результат?</div>
-                    <p>Быстро — можно. Случайно — тоже возможно. Но фокус этого решения — стабильность и повторяемость, а не разовая удача. Система даёт предсказуемый результат.</p>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">❓ Подойдёт ли это для моей ниши?</div>
-                    <p>Система адаптирована под 5 основных категорий ниш: твёрдые (юристы, финансы), мягкие (психологи, астрологи), бьюти и здоровье, творчество и спорт, образование и лайфстайл. Если вы эксперт в любой из этих категорий — система подойдёт идеально.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER CTA -->
-    <section class="section" style="background: var(--secondary); color: white; text-align: center;">
-        <div class="container">
-            <h2 style="color: white; margin-bottom: 24px;">Хватит терять время и деньги на контент</h2>
-            <p style="font-size: 20px; margin-bottom: 40px;">Система, которая принесла 300 000+ подписчиков, теперь доступна за 890 ₽</p>
-            <a href="https://t.me/tribute/app?startapp=sMJ0" class="cta-button" onclick="trackConversion('footer_cta')">
-                ПОЛУЧИТЬ КОНСТРУКТОР КОНТЕНТА →
-            </a>
-            <p style="margin-top: 32px; font-size: 15px; opacity: 0.7;">Instagram* — Деятельность Instagram и Facebook в России признана экстремистской и запрещена на территории РФ</p>
-        </div>
-    </section>
-
-    <!-- STICKY CTA -->
-    <div class="sticky-cta">
-        <div class="container">
-            <a href="https://t.me/tribute/app?startapp=sMJ0" class="cta-button" onclick="trackConversion('sticky_cta')">
-                ПОЛУЧИТЬ ЗА 890 ₽ →
-            </a>
-        </div>
-    </div>
-
-    <script>
-        // ========================================
-        // ТАЙМЕР ОБРАТНОГО ОТСЧЁТА (24 часа)
-        // ========================================
-        function initCountdown() {
-            // Проверяем, есть ли сохранённое время окончания
-            let endTime = localStorage.getItem('countdownEnd');
-            
-            if (!endTime) {
-                // Если нет, создаём новое время окончания (через 24 часа)
-                endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
-                localStorage.setItem('countdownEnd', endTime);
-            }
-            
-            const timer = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = endTime - now;
-                
-                // Вычисляем часы, минуты, секунды
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Обновляем DOM
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-                
-                // Если таймер закончился
-                if (distance < 0) {
-                    clearInterval(timer);
-                    // Сбрасываем и начинаем заново
-                    localStorage.removeItem('countdownEnd');
-                    initCountdown();
-                }
-            }, 1000);
-        }
-        
-        // ========================================
-        // СЧЁТЧИК ОСТАВШИХСЯ МЕСТ
-        // ========================================
-        function initSpotsCounter() {
-            let spots = localStorage.getItem('spotsLeft');
-            
-            if (!spots) {
-                // Начальное количество мест (17-23)
-                spots = Math.floor(Math.random() * 7) + 17;
-                localStorage.setItem('spotsLeft', spots);
-                localStorage.setItem('spotsTimer', new Date().getTime());
-            }
-            
-            // Уменьшаем количество мест каждые 3-7 минут
-            const spotsTimer = localStorage.getItem('spotsTimer');
-            const now = new Date().getTime();
-            const timePassed = now - spotsTimer;
-            const decreaseInterval = (Math.random() * 4 + 3) * 60 * 1000; // 3-7 минут
-            
-            if (timePassed > decreaseInterval && spots > 3) {
-                spots--;
-                localStorage.setItem('spotsLeft', spots);
-                localStorage.setItem('spotsTimer', now);
-            }
-            
-            document.getElementById('spots-left').textContent = spots;
-            
-            // Проверяем каждые 30 секунд
-            setTimeout(initSpotsCounter, 30000);
-        }
-        
-        // ========================================
-        // STICKY CTA
-        // ========================================
-        window.addEventListener('scroll', function() {
-            const stickyCTA = document.querySelector('.sticky-cta');
-            if (window.scrollY > 800) {
-                stickyCTA.classList.add('visible');
-            } else {
-                stickyCTA.classList.remove('visible');
-            }
+<!-- ==========================================
+     GOOGLE ANALYTICS 4 — РАСШИРЕННОЕ ОТСЛЕЖИВАНИЕ
+     Вставить в <head> ВМЕСТО стандартного кода GA4
+     ========================================== -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9V45QP5LP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Базовая конфигурация с расширенными настройками
+  gtag('config', 'G-Q9V45QP5LP', {
+    // Отслеживание кликов, скролла, форм — автоматически
+    send_page_view: true,
+    cookie_flags: 'SameSite=None;Secure',
+    // Хранить cookie 2 года
+    cookie_expires: 63072000
+  });
+
+  // ── COOKIE-ХЕЛПЕРЫ ──────────────────────────────
+  function setCookie(name, value, days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = name + '=' + encodeURIComponent(value)
+      + '; expires=' + date.toUTCString()
+      + '; path=/; SameSite=Lax';
+  }
+
+  function getCookie(name) {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(nameEQ) === 0)
+        return decodeURIComponent(c.substring(nameEQ.length));
+    }
+    return null;
+  }
+
+  // ── СОХРАНЯЕМ UTM-МЕТКИ В COOKIE ────────────────
+  // Нужно для атрибуции если пользователь вернётся позже
+  (function saveUtm() {
+    var params = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid'];
+    var search = window.location.search;
+    if (!search) return;
+    var urlParams = new URLSearchParams(search);
+    var snapshot = {};
+    params.forEach(function(p) {
+      var val = urlParams.get(p);
+      if (val) {
+        setCookie('_ga_' + p, val, 30);
+        snapshot[p] = val;
+      }
+    });
+    if (Object.keys(snapshot).length > 0) {
+      setCookie('_ga_utm_snapshot', JSON.stringify(snapshot), 30);
+      // Передаём UTM в GA4 как user properties
+      gtag('set', 'user_properties', snapshot);
+    }
+  })();
+
+  // ── УНИКАЛЬНЫЙ ID ПОСЕТИТЕЛЯ ────────────────────
+  (function setUserId() {
+    var uid = getCookie('_ga_user_id');
+    if (!uid) {
+      uid = 'u_' + Math.random().toString(36).substr(2,9) + '_' + Date.now();
+      setCookie('_ga_user_id', uid, 365);
+    }
+    gtag('set', { 'user_id': uid });
+  })();
+
+  // ── СОБЫТИЯ ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ ────────────
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // 1. КЛИК НА КНОПКУ ПОКУПКИ → событие конверсии
+    var buyButtons = document.querySelectorAll('a[href*="tribute"], a[href*="t.me"]');
+    buyButtons.forEach(function(btn, i) {
+      btn.addEventListener('click', function() {
+        gtag('event', 'purchase_click', {
+          event_category: 'conversion',
+          event_label: btn.innerText.trim() || 'CTA button ' + (i+1),
+          value: 890,
+          currency: 'RUB'
         });
-        
-        // ========================================
-        // ТРЕКИНГ КОНВЕРСИЙ
-        // ========================================
-        function trackConversion(buttonId) {
-            // Яндекс.Метрика
-            if (typeof ym !== 'undefined') {
-                ym(XXXXXXXX, 'reachGoal', 'click_cta_' + buttonId);
-            }
-            
-            // Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'CTA',
-                    'event_label': buttonId
-                });
-            }
-            
-            // Facebook Pixel (если используется)
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: 'Lead Magnet CTA',
-                    content_category: buttonId
-                });
-            }
-        }
-        
-        // ========================================
-        // ТРЕКИНГ СКРОЛЛА
-        // ========================================
-        let scrollTracked = {
-            '25': false,
-            '50': false,
-            '75': false,
-            '100': false
-        };
-        
-        window.addEventListener('scroll', function() {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
-            
-            // Отслеживаем прокрутку
-            Object.keys(scrollTracked).forEach(function(percent) {
-                if (scrollPercent >= parseInt(percent) && !scrollTracked[percent]) {
-                    scrollTracked[percent] = true;
-                    
-                    if (typeof ym !== 'undefined') {
-                        ym(XXXXXXXX, 'reachGoal', 'scroll_' + percent);
-                    }
-                    
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'scroll', {
-                            'event_category': 'Engagement',
-                            'event_label': percent + '%'
-                        });
-                    }
-                }
+        // Основное событие конверсии GA4
+        gtag('event', 'begin_checkout', {
+          currency: 'RUB',
+          value: 890,
+          items: [{
+            item_name: 'Конструктор контента 30 каруселей',
+            item_category: 'SMM',
+            price: 890,
+            quantity: 1
+          }]
+        });
+        setCookie('_ga_checkout_intent', '1', 7);
+      });
+    });
+
+    // 2. ГЛУБИНА СКРОЛЛА — 25%, 50%, 75%, 90%
+    var scrollFired = {};
+    window.addEventListener('scroll', function() {
+      var pct = Math.round(
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+      );
+      [25, 50, 75, 90].forEach(function(threshold) {
+        if (pct >= threshold && !scrollFired[threshold]) {
+          scrollFired[threshold] = true;
+          gtag('event', 'scroll_depth', {
+            event_category: 'engagement',
+            event_label: threshold + '%',
+            value: threshold
+          });
+          // На 90% — считаем как высокий интерес
+          if (threshold === 90) {
+            gtag('event', 'high_intent_scroll', {
+              event_category: 'conversion',
+              event_label: 'Прочитал почти всё'
             });
-        });
-        
-        // ========================================
-        // ИНИЦИАЛИЗАЦИЯ
-        // ========================================
-        document.addEventListener('DOMContentLoaded', function() {
-            initCountdown();
-            initSpotsCounter();
-        });
-    </script>
+          }
+        }
+      });
+    }, { passive: true });
 
-</body>
-</html>
+    // 3. ВРЕМЯ НА СТРАНИЦЕ — 30сек, 60сек, 3мин
+    var timeFired = {};
+    [[30,'30 секунд'], [60,'1 минута'], [180,'3 минуты']].forEach(function(t) {
+      setTimeout(function() {
+        if (!timeFired[t[0]]) {
+          timeFired[t[0]] = true;
+          gtag('event', 'time_on_page', {
+            event_category: 'engagement',
+            event_label: t[1],
+            value: t[0]
+          });
+        }
+      }, t[0] * 1000);
+    });
+
+    // 4. ПРОСМОТР БЛОКА С ЦЕНОЙ (ViewContent)
+    var priceSection = document.querySelector('section, .price, h2, .offer');
+    // Ищем блок с текстом про цену
+    var allElements = document.querySelectorAll('*');
+    for (var i = 0; i < allElements.length; i++) {
+      if (allElements[i].innerText && allElements[i].innerText.includes('890')) {
+        priceSection = allElements[i];
+        break;
+      }
+    }
+    if (priceSection && 'IntersectionObserver' in window) {
+      var priceObserved = false;
+      var priceObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !priceObserved) {
+            priceObserved = true;
+            gtag('event', 'view_price_block', {
+              event_category: 'engagement',
+              event_label: 'Увидел цену 890₽'
+            });
+            // Стандартное событие GA4
+            gtag('event', 'view_item', {
+              currency: 'RUB',
+              value: 890,
+              items: [{
+                item_name: 'Конструктор контента',
+                price: 890
+              }]
+            });
+          }
+        });
+      }, { threshold: 0.5 });
+      priceObserver.observe(priceSection);
+    }
+
+    // 5. УХОД СО СТРАНИЦЫ (exit intent) — мышь к верхнему краю
+    var exitFired = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY <= 5 && !exitFired) {
+        exitFired = true;
+        gtag('event', 'exit_intent', {
+          event_category: 'engagement',
+          event_label: 'Попытка закрыть страницу'
+        });
+      }
+    });
+
+  }); // end DOMContentLoaded
+</script>
+<!-- End Google Analytics 4 -->
