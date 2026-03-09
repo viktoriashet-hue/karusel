@@ -1857,7 +1857,7 @@
                     </div>
                 </div>
 
-                <a href="https://t.me/tribute/app?startapp=sPU5" class="cta-button" onclick="trackConversion('main_cta')">
+                <a href="https://t.me/tribute/app?startapp=sPU5" class="cta-button" onclick="trackConversion('main_cta','https://t.me/tribute/app?startapp=sPU5');return false;">
                     ПОЛУЧИТЬ ЗА 9 € →
                 </a>
 
@@ -1923,7 +1923,7 @@
         <div class="container">
             <h2 style="color: white; margin-bottom: 24px;">Хватит терять время и деньги на контент</h2>
             <p style="font-size: 20px; margin-bottom: 40px;">Система, которая принесла 300 000+ подписчиков, теперь доступна за 9 €</p>
-            <a href="https://t.me/tribute/app?startapp=sPU5" class="cta-button" onclick="trackConversion('footer_cta')">
+            <a href="https://t.me/tribute/app?startapp=sPU5" class="cta-button" onclick="trackConversion('footer_cta','https://t.me/tribute/app?startapp=sPU5');return false;">
                 ПОЛУЧИТЬ ЗА 9 € →
             </a>
             
@@ -1933,7 +1933,7 @@
     <!-- STICKY CTA -->
     <div class="sticky-cta">
         <div class="container">
-            <a href="https://t.me/tribute/app?startapp=sPU5" class="cta-button" onclick="trackConversion('sticky_cta')">
+            <a href="https://t.me/tribute/app?startapp=sPU5" class="cta-button" onclick="trackConversion('sticky_cta','https://t.me/tribute/app?startapp=sPU5');return false;">
                 ПОЛУЧИТЬ ЗА 9 € →
             </a>
         </div>
@@ -2084,7 +2084,7 @@
         // ========================================
         // ТРЕКИНГ КОНВЕРСИЙ
         // ========================================
-        function trackConversion(buttonId) {
+        function trackConversion(buttonId, url) {
             if (typeof ym !== 'undefined') {
                 ym(XXXXXXXX, 'reachGoal', 'click_cta_' + buttonId);
             }
@@ -2104,6 +2104,9 @@
                     content_ids: ['carousel-30'],
                     num_items: 1
                 });
+            }
+            if (url) {
+                setTimeout(function() { window.open(url, '_blank'); }, 300);
             }
         }
 
