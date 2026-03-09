@@ -2096,6 +2096,15 @@
                     items: [{ item_name: 'Конструктор контента 30 каруселей', price: 9, quantity: 1 }]
                 });
             }
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    currency: 'EUR',
+                    value: 9,
+                    content_name: 'Конструктор контента 30 каруселей',
+                    content_ids: ['carousel-30'],
+                    num_items: 1
+                });
+            }
         }
 
         // ========================================
