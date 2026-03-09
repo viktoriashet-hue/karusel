@@ -7,23 +7,7 @@
     <meta name="description" content="Система создания каруселей, которая принесла 300К+ подписчиков. Доступ навсегда + обновления 1 год бесплатно. Всего 9€.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();
-       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-       ym(XXXXXXXX, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true,
-            ecommerce:"dataLayer"
-       });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+
 
     <!-- ==========================================
          GOOGLE ANALYTICS 4 — РАСШИРЕННОЕ ОТСЛЕЖИВАНИЕ
@@ -2085,9 +2069,6 @@
         // ТРЕКИНГ КОНВЕРСИЙ
         // ========================================
         function trackConversion(buttonId, url) {
-            if (typeof ym !== 'undefined') {
-                ym(XXXXXXXX, 'reachGoal', 'click_cta_' + buttonId);
-            }
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'begin_checkout', {
                     currency: 'RUB',
@@ -2119,7 +2100,6 @@
             Object.keys(scrollTracked).forEach(function(p) {
                 if (pct >= parseInt(p) && !scrollTracked[p]) {
                     scrollTracked[p] = true;
-                    if (typeof ym !== 'undefined') ym(XXXXXXXX, 'reachGoal', 'scroll_' + p);
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'scroll_depth', { event_category: 'Engagement', event_label: p + '%', value: parseInt(p) });
                     }
